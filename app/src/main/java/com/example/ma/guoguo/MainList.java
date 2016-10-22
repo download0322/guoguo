@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainList extends AppCompatActivity {
+    // this is a test
     private List<Fruit> fruitList = new ArrayList<Fruit>();
 
     @Override
