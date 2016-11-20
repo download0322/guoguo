@@ -32,7 +32,7 @@ import com.baidu.mapapi.search.route.WalkingRouteResult;
 import com.baidu.mapapi.search.core.SearchResult;
 
 
-public class MainActivity extends AppCompatActivity implements OnGetRoutePlanResultListener{
+public class Map extends AppCompatActivity implements OnGetRoutePlanResultListener{
     RouteLine route = null;
 
     boolean useDefaultIcon = false;
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements OnGetRoutePlanRes
     @Override
     public void onGetWalkingRouteResult(WalkingRouteResult result){
         if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
-            Toast.makeText(MainActivity.this, "抱歉，未找到结果", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Map.this, "抱歉，未找到结果", Toast.LENGTH_SHORT).show();
         }
         if (result.error == SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR) {
             // 起终点或途经点地址有岐义，通过以下接口获取建议查询信息
