@@ -35,12 +35,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="@dimen/text_margin"
-                android:text="查看位置"/>
+                android:background="@drawable/divider_rec"
+            />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="查看位置"/>
+                android:background="@drawable/divider_rec"
+                />
             <TextView
+                android:id="@+id/show_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="查看位置"/>
