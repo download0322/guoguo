@@ -28,5 +28,7 @@ public class Detail extends AppCompatActivity {
             }
         });
 
+        TextView phone_number =(TextView)findViewById(R.id.phone_number)
+
     }
 }
