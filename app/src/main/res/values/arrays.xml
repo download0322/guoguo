@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="detail_info">
+        <item>name:巴蜀人家	home_img:bashu.png	images:1.png*2.png*3.png	location:肥西路*117.266589,31.845293	tel:0551-63633651</item>
+    </string-array>
+</resources>

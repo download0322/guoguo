@@ -3,6 +3,7 @@ package com.example.ma.guoguo;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,7 +29,16 @@ public class Detail extends AppCompatActivity {
             }
         });
 
-        TextView phone_number =(TextView)findViewById(R.id.phone_number)
+        final TextView phone_number =(TextView)findViewById(R.id.phone_number);
+        phone_number.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String Telphone = phone_number.getText().toString();
+                Intent intent = new Intent(Intent.ACTION_DIAL,Uri.parse("tel:" + Telphone));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
 
     }
 }

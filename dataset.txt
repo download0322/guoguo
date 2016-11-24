@@ -1,0 +1,1 @@
+name:巴蜀人家	home_img:bashu.png	images:	location:肥西路 117.266589,31.845293	tel:0551-63633651

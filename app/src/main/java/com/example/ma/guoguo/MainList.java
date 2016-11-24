@@ -1,6 +1,8 @@
 package com.example.ma.guoguo;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -40,6 +42,16 @@ public class MainList extends AppCompatActivity {
     }
 
     private void initFruits() {
+
+        Resources res =getResources();
+        String[] list = res.getStringArray(R.array.detail_info);
+        String[] item = list[0].split(" ");
+        for(int i=0;i<item.length;i++)
+        {
+            System.out.println(i);
+            System.out.println(item[i]);
+        }
+
         Fruit apple = new Fruit("Apple", R.drawable.apple_pic, "about");
         fruitList.add(apple);
         Fruit banana = new Fruit("Banana", R.drawable.banana_pic, "about");
