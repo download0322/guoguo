@@ -15,13 +15,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainList extends AppCompatActivity {
-    // this is a test
     private List<Fruit> fruitList = new ArrayList<Fruit>();
+
+    String[] list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_list);
+
+        Resources res =getResources();
+        list = res.getStringArray(R.array.detail_info);
+
         initFruits(); // 初始化水果数据
         FruitAdapter adapter = new FruitAdapter(MainList.this,
                 R.layout.fruit_item, fruitList);
@@ -32,10 +37,11 @@ public class MainList extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Fruit fruit = fruitList.get(position);
-                Toast.makeText(MainList.this, fruit.getName(),
-                        Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainList.this, Detail.class);
+                //activity之间传递数据
+                Bundle bundle = new Bundle();
+                bundle.putString("detail", list[position]);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
@@ -43,16 +49,16 @@ public class MainList extends AppCompatActivity {
 
     private void initFruits() {
 
-        Resources res =getResources();
-        String[] list = res.getStringArray(R.array.detail_info);
-        String[] item = list[0].split(" ");
-        for(int i=0;i<item.length;i++)
+
+        for(int i=0;i<list.length;i++)
         {
-            System.out.println(i);
-            System.out.println(item[i]);
+            String[] item=list[i].split(" ");
+            int imgid = getResources().getIdentifier(item[1].split(":")[1], "drawable", "com.example.ma.guoguo"); //动态获取image id
+            Fruit temp = new Fruit(item[0].split(":")[1], imgid, "about");
+            fruitList.add(temp);
         }
 
-        Fruit apple = new Fruit("Apple", R.drawable.apple_pic, "about");
+        /*Fruit apple = new Fruit("Apple", R.drawable.apple_pic, "about");
         fruitList.add(apple);
         Fruit banana = new Fruit("Banana", R.drawable.banana_pic, "about");
         fruitList.add(banana);
@@ -75,6 +81,6 @@ public class MainList extends AppCompatActivity {
         Fruit cherry1 = new Fruit("Cherry1", R.drawable.cherry_pic, "about");
         fruitList.add(cherry1);
         Fruit mango1 = new Fruit("Mango1", R.drawable.mango_pic, "about");
-        fruitList.add(mango1);
+        fruitList.add(mango1);*/
     }
 }

@@ -55,6 +55,11 @@ public class Map extends AppCompatActivity implements OnGetRoutePlanResultListen
         //注意该方法要再setContentView方法之前实现
         SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.activity_main);
+
+        Bundle bundle = this.getIntent().getExtras();
+        float latitude = bundle.getFloat("latitude");
+        float longitude = bundle.getFloat("longitude");
+
         mMapView = (MapView) findViewById(R.id.bmapView);
         mBaiduMap = mMapView.getMap();
 
