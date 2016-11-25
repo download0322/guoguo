@@ -1,6 +1,6 @@
 package com.example.ma.guoguo;
 
-public class Fruit {
+public class Restaurant {
 
 	private String name;
 
@@ -8,7 +8,7 @@ public class Fruit {
 
 	private int imageId;
 
-	public Fruit(String name, int imageId, String about) {
+	public Restaurant(String name, int imageId, String about) {
 		this.name = name;
 		this.imageId = imageId;
 		this.about = about;

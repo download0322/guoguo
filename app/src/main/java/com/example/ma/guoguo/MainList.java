@@ -2,20 +2,17 @@ package com.example.ma.guoguo;
 
 import android.content.Intent;
 import android.content.res.Resources;
-import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainList extends AppCompatActivity {
-    private List<Fruit> fruitList = new ArrayList<Fruit>();
+    private List<Restaurant> fruitList = new ArrayList<Restaurant>();
 
     String[] list;
 
@@ -28,8 +25,8 @@ public class MainList extends AppCompatActivity {
         list = res.getStringArray(R.array.detail_info);
 
         initFruits(); // 初始化水果数据
-        FruitAdapter adapter = new FruitAdapter(MainList.this,
-                R.layout.fruit_item, fruitList);
+        RestaurantAdapter adapter = new RestaurantAdapter(MainList.this,
+                R.layout.restaurant_item, fruitList);
         ListView listView = (ListView) findViewById(R.id.list_view);
         listView.setAdapter(adapter);
 
@@ -54,7 +51,7 @@ public class MainList extends AppCompatActivity {
         {
             String[] item=list[i].split(" ");
             int imgid = getResources().getIdentifier(item[1].split(":")[1], "drawable", "com.example.ma.guoguo"); //动态获取image id
-            Fruit temp = new Fruit(item[0].split(":")[1], imgid, "about");
+            Restaurant temp = new Restaurant(item[0].split(":")[1], imgid, item[6].split(":")[1]);
             fruitList.add(temp);
         }
 

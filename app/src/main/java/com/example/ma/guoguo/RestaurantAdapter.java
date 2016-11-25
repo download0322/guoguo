@@ -10,19 +10,19 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class FruitAdapter extends ArrayAdapter<Fruit> {
+public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
 
 	private int resourceId;
 
-	public FruitAdapter(Context context, int textViewResourceId,
-			List<Fruit> objects) {
+	public RestaurantAdapter(Context context, int textViewResourceId,
+			List<Restaurant> objects) {
 		super(context, textViewResourceId, objects);
 		resourceId = textViewResourceId;
 	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		Fruit fruit = getItem(position);
+		Restaurant fruit = getItem(position);
 		View view;
 		ViewHolder viewHolder;
 		if (convertView == null) {
