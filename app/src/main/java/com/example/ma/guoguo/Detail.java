@@ -1,13 +1,17 @@
 package com.example.ma.guoguo;
 
 import android.content.Intent;
+import android.content.SyncAdapterType;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class Detail extends AppCompatActivity {
@@ -57,5 +61,25 @@ public class Detail extends AppCompatActivity {
             }
         });
 
+        LinearLayout detail_image = (LinearLayout)findViewById(R.id.detail_image);
+        String[] images = item[2].split(":")[1].split(",");
+        System.out.println(images.length);
+        for(int j = 0;j<images.length;j++)
+        {
+            ImageView imageView = new ImageView(this);
+            imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            int img_id = getResources().getIdentifier(images[j], "drawable", "com.example.ma.guoguo"); //动态获取image id
+            imageView.setImageResource(img_id);
+
+            ViewGroup.LayoutParams para;
+            para = imageView.getLayoutParams();
+            para.height = 300;
+            para.width = 300;
+            imageView.setLayoutParams(para);
+
+            imageView.setPadding(5,5,5,0);
+
+            detail_image.addView(imageView);
+        }
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="detail_info">
-        <item>name:巴蜀人家 home_img:bashu images:1-1.png,1-2.png,1-3.png
+        <item>name:巴蜀人家 home_img:bashu images:bashu_1,bashu_2,bashu_3
             location:肥西路巴蜀人家 coordinate:117.266589,31.845293 tel:0551-63633651 style:川菜馆 comment:很好吃</item>
         <item>name:老地方 home_img:bashu images:1-1.png,1-2.png,1-3.png
             location:肥西路老地方 coordinate:117.26254,31.860489 tel:0551-63633651 style:川菜馆 comment:很好吃</item>
