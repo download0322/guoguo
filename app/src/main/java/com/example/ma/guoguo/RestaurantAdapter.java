@@ -28,25 +28,25 @@ public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
 		if (convertView == null) {
 			view = LayoutInflater.from(getContext()).inflate(resourceId, null);
 			viewHolder = new ViewHolder();
-			viewHolder.fruitImage = (ImageView) view.findViewById(R.id.fruit_image);
-			viewHolder.fruitName = (TextView) view.findViewById(R.id.fruit_name);
+			viewHolder.RestaurantImage = (ImageView) view.findViewById(R.id.fruit_image);
+			viewHolder.RestaurantName = (TextView) view.findViewById(R.id.fruit_name);
 			viewHolder.about=(TextView)view.findViewById(R.id.about);
 			view.setTag(viewHolder);
 		} else {
 			view = convertView;
 			viewHolder = (ViewHolder) view.getTag();
 		}
-		viewHolder.fruitImage.setImageResource(fruit.getImageId());
-		viewHolder.fruitName.setText(fruit.getName());
+		viewHolder.RestaurantImage.setImageResource(fruit.getImageId());
+		viewHolder.RestaurantName.setText(fruit.getName());
 		viewHolder.about.setText(fruit.getAbout());
 		return view;
 	}
 	
 	class ViewHolder {
 		
-		ImageView fruitImage;
+		ImageView RestaurantImage;
 		
-		TextView fruitName;
+		TextView RestaurantName;
 
 		TextView about;
 		
