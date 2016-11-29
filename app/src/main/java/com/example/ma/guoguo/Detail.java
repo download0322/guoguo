@@ -31,11 +31,21 @@ public class Detail extends AppCompatActivity {
         final float latitude = Float.parseFloat(coordinate.split(",")[1]);
         final String phone_number = item[5].split(":")[1];
 
+        this.setTitle(item[0].split(":")[1]);
+
         ImageView restaurant_image = (ImageView)findViewById(R.id.restaurant_image);
         restaurant_image.setImageResource(imgid);
 
+
+        TextView res_name_1 = (TextView)findViewById(R.id.res_name_1);
+        TextView res_style_1 = (TextView)findViewById(R.id.res_style_1);
+        res_name_1.setText(item[0].split(":")[1]);
+        res_style_1.setText(item[6].split(":")[1]);
+
+
+
         TextView text_location = (TextView)findViewById(R.id.show_location);
-        text_location.setText(address);
+        text_location.setText("地址: " + address);
         text_location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +60,7 @@ public class Detail extends AppCompatActivity {
         });
 
         final TextView text_phone_number =(TextView)findViewById(R.id.phone_number);
-        text_phone_number.setText(phone_number);
+        text_phone_number.setText("电话: " + phone_number);
         text_phone_number.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,19 +77,34 @@ public class Detail extends AppCompatActivity {
         for(int j = 0;j<images.length;j++)
         {
             ImageView imageView = new ImageView(this);
-            imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            //imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             int img_id = getResources().getIdentifier(images[j], "drawable", "com.example.ma.guoguo"); //动态获取image id
             imageView.setImageResource(img_id);
 
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            lp.setMargins(0, 10, 0, 10);
+            imageView.setLayoutParams(lp);
+
+            //固定图片的宽高
             ViewGroup.LayoutParams para;
             para = imageView.getLayoutParams();
             para.height = 300;
-            para.width = 300;
+            para.width = 400;
             imageView.setLayoutParams(para);
 
-            imageView.setPadding(5,5,5,0);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY); //设置图片拉伸方式
 
             detail_image.addView(imageView);
+        }
+
+        //推荐菜品
+        LinearLayout recommendation = (LinearLayout)findViewById(R.id.recommendation);
+        String[] food_names = item[8].split(":")[1].split(",");
+        for(int k = 0;k<food_names.length;k++)
+        {
+            TextView textView = new TextView(this);
+            textView.setText(food_names[k]);
+            recommendation.addView(textView);
         }
     }
 }

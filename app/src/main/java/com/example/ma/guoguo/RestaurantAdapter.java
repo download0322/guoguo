@@ -22,23 +22,23 @@ public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		Restaurant fruit = getItem(position);
+		Restaurant restaurant = getItem(position);
 		View view;
 		ViewHolder viewHolder;
 		if (convertView == null) {
 			view = LayoutInflater.from(getContext()).inflate(resourceId, null);
 			viewHolder = new ViewHolder();
-			viewHolder.RestaurantImage = (ImageView) view.findViewById(R.id.fruit_image);
-			viewHolder.RestaurantName = (TextView) view.findViewById(R.id.fruit_name);
+			viewHolder.RestaurantImage = (ImageView) view.findViewById(R.id.restaurant_image);
+			viewHolder.RestaurantName = (TextView) view.findViewById(R.id.restaurant_name);
 			viewHolder.about=(TextView)view.findViewById(R.id.about);
 			view.setTag(viewHolder);
 		} else {
 			view = convertView;
 			viewHolder = (ViewHolder) view.getTag();
 		}
-		viewHolder.RestaurantImage.setImageResource(fruit.getImageId());
-		viewHolder.RestaurantName.setText(fruit.getName());
-		viewHolder.about.setText(fruit.getAbout());
+		viewHolder.RestaurantImage.setImageResource(restaurant.getImageId());
+		viewHolder.RestaurantName.setText(restaurant.getName());
+		viewHolder.about.setText(restaurant.getAbout());
 		return view;
 	}
 	

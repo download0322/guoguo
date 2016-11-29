@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">guoguo</string>
+    <string name="app_name">果果美食推荐</string>
     <string name="title_activity_main_list">mainList</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"

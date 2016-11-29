@@ -25,13 +25,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Map"></activity>
+        <activity android:name=".Map"
+            android:label="交通">
+        </activity>
 
+        //这部分是为了使用百度地图API向百度申请的KEY，在不同的机器上跑要设置成自己不同的KEY
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="6tXOGzRGErEGNiGaDotRL8GtKK6AVGBD" />
 
-        <activity android:name=".MainList">
+        <activity android:name=".MainList"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
